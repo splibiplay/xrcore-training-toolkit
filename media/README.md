@@ -1,14 +1,5 @@
-# Media
+# Media (opcional)
 
-Coloca aquí los recursos de presentación del XRCore Training Toolkit:
+Esta carpeta es opcional y puedes usarla si quieres subir archivos de demo directamente al repositorio (por ejemplo `demo.mp4` o `demo.gif`).
 
-- `demo.mp4` (vídeo de la demo para GitHub / marketing)
-- `demo.gif` (versión corta en bucle para README)
-
-Ejemplo de uso en el `README.md` raíz:
-
-`![Demo](media/demo.gif)`
-
-También puedes enlazar un vídeo externo de YouTube, por ejemplo:
-
-- [XRCore Training Toolkit – Demo en YouTube](https://www.youtube.com/watch?v=NmwTmtryts8&list=PLdX4Fo1P__hpMhe5PJsSRt3a8O02E0dr3&index=2)
+No es necesario para usar el XRCore Training Toolkit; la demo principal está enlazada desde el README via YouTube.
