@@ -8,6 +8,17 @@ Donde XRCore resuelve la **arquitectura de agentes XR (percepción → eventos �
 
 ---
 
+## Demo
+
+[▶ Ver demo completa en YouTube](https://www.youtube.com/watch?v=NmwTmtryts8&list=PLdX4Fo1P__hpMhe5PJsSRt3a8O02E0dr3&index=2)
+
+```text
+Mira, coge y coloca una herramienta en XR,
+guiado paso a paso con instrucciones, highlight y audio.
+```
+
+---
+
 ## ¿Por qué XRCore Training Toolkit?
 
 En muchos proyectos de formación XR pasa lo siguiente:
@@ -76,23 +87,6 @@ XRCore Training Toolkit está diseñado explícitamente para trabajar junto a [X
 - **Demo industrial lista para grabar**:
   - Escena de ejemplo donde el usuario: **mira**, **coge** y **coloca** una herramienta.
   - Bootstrap que monta cámara, entorno, UI y lógica de entrenamiento automáticamente.
-
----
-
-## Demo y vídeo
-
-Puedes añadir tus recursos de demo en el propio repositorio:
-
-- `media/demo.mp4`
-- `media/demo.gif`
-
-Y referenciarlos en este README, por ejemplo:
-
-`![Demo](media/demo.gif)`
-
-Además puedes enlazar vídeos externos de YouTube, por ejemplo:
-
-- [XRCore Training Toolkit – Demo en YouTube](https://www.youtube.com/watch?v=NmwTmtryts8&list=PLdX4Fo1P__hpMhe5PJsSRt3a8O02E0dr3&index=2)
 
 ---
 
