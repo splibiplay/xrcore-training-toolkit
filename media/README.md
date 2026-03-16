@@ -1,10 +1,14 @@
 # Media
 
-Place presentation assets for the repository here:
+Coloca aquí los recursos de presentación del XRCore Training Toolkit:
 
-- `demo.mp4`
-- `demo.gif`
+- `demo.mp4` (vídeo de la demo para GitHub / marketing)
+- `demo.gif` (versión corta en bucle para README)
 
-README usage example:
+Ejemplo de uso en el `README.md` raíz:
 
 `![Demo](media/demo.gif)`
+
+También puedes enlazar un vídeo externo de YouTube, por ejemplo:
+
+- [XRCore Training Toolkit – Demo en YouTube](https://www.youtube.com/watch?v=NmwTmtryts8&list=PLdX4Fo1P__hpMhe5PJsSRt3a8O02E0dr3&index=2)
