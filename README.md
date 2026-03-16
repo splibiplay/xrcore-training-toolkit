@@ -2,158 +2,158 @@
 
 [![Unity](https://img.shields.io/badge/Unity-2022%2B%20%7C%20Unity%206-black)](https://unity.com/) [![Category](https://img.shields.io/badge/XR-Training-blue)](#) [![AI](https://img.shields.io/badge/AI-Assistant%20Flows-purple)](#) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-XRCore Training Toolkit es una capa de **entrenamiento guiado** para Unity XR construida encima de [XRCore — AI Agent Framework for Unity XR](https://github.com/splibiplay/xrcore-sdk).
+XRCore Training Toolkit is a **guided training layer** for Unity XR built on top of [XRCore — AI Agent Framework for Unity XR](https://github.com/splibiplay/xrcore-sdk).
 
-Donde XRCore resuelve la **arquitectura de agentes XR (percepción → eventos → razonamiento → comportamiento)**, XRCore Training Toolkit añade la capa que falta para muchos proyectos reales: **escenarios de entrenamiento estructurados, pasos, validaciones y feedback claro para el usuario final**.
+Where XRCore focuses on the **agent architecture (perception → events → reasoning → behaviour)**, XRCore Training Toolkit adds what many real projects are missing: **structured training scenarios, steps, validators, and clear user feedback**.
 
 ---
 
 ## Demo
 
-[▶ Ver demo completa en YouTube](https://www.youtube.com/watch?v=NmwTmtryts8&list=PLdX4Fo1P__hpMhe5PJsSRt3a8O02E0dr3&index=2)
+[▶ Watch full demo on YouTube](https://www.youtube.com/watch?v=NmwTmtryts8&list=PLdX4Fo1P__hpMhe5PJsSRt3a8O02E0dr3&index=2)
 
 ```text
-Mira, coge y coloca una herramienta en XR,
-guiado paso a paso con instrucciones, highlight y audio.
+Look, grab and place a tool in XR,
+guided step-by-step with instructions, highlighting and audio.
 ```
 
 ---
 
-## ¿Por qué XRCore Training Toolkit?
+## Why XRCore Training Toolkit?
 
-En muchos proyectos de formación XR pasa lo siguiente:
+In many XR training projects, the pattern is always the same:
 
-- Se montan escenas de demo muy específicas.
-- La lógica de entrenamiento ("mira", "coge", "coloca", "pulsa el botón", etc.) queda mezclada con scripts de interacción.
-- Cada nuevo flujo de entrenamiento implica duplicar escenas, prefabs y lógica ad hoc.
+- Demo scenes are built for one very specific flow.
+- Training logic ("look", "grab", "place", "press the button"…) is mixed with interaction scripts.
+- Every new training flow means duplicating scenes, prefabs and ad-hoc logic.
 
-XRCore Training Toolkit propone otra aproximación:
+XRCore Training Toolkit proposes a different approach:
 
-- **Separar el "motor XR" (XRCore) de la lógica de entrenamiento**.
-- Definir entrenamientos como **escenarios de datos** (`XRTrainingScenario` + `XRTrainingStep`).
-- Describir reglas de validación como **validadores reutilizables** (`IXRTrainingValidator`).
-- Conectar todo a una **capa de feedback** (UI, highlight, audio) que haga el entrenamiento entendible en segundos.
+- **Separate the XR engine (XRCore) from the training logic**.
+- Define trainings as **data scenarios** (`XRTrainingScenario` + `XRTrainingStep`).
+- Express validation rules as **reusable validators** (`IXRTrainingValidator`).
+- Connect everything to a **feedback layer** (UI, highlight, audio) that makes the training understandable in seconds.
 
-De esta forma puedes reutilizar el mismo motor de agente XR (XRCore) para múltiples proyectos, y solo cambiar **escenarios y validadores** para crear nuevos cursos XR.
-
----
-
-## Relación con XRCore
-
-XRCore Training Toolkit está diseñado explícitamente para trabajar junto a [XRCore SDK](https://github.com/splibiplay/xrcore-sdk):
-
-- XRCore proporciona:
-  - `XRCoreEventBus` (bus de eventos).
-  - Proveedores de percepción (detección, visión, etc.).
-  - Agentes (`XRGuideAgent`) y razonadores (rule engine, state machine, LLM...).
-- XRCore Training Toolkit añade:
-  - `XRTrainingScenario` y `XRTrainingStep` para definir flujos de entrenamiento.
-  - `XRTrainingScenarioRunner` para orquestar los pasos.
-  - `IXRTrainingValidator` y validadores listos para usar (mirar, coger, colocar).
-  - Sistema de feedback (UI de instrucciones, progreso, estado del paso, audio, highlight).
-  - Una demo industrial lista para grabar vídeo en segundos.
-
-**Requisito:** para la experiencia completa necesitas importar también XRCore en el proyecto Unity. El toolkit puede funcionar de forma limitada sin XRCore, pero está pensado como complemento natural del framework base.
+This lets you reuse the same XR agent engine (XRCore) across multiple projects and build new XR courses by changing **scenarios and validators**, not by rewriting low-level interaction code.
 
 ---
 
-## Características principales
+## Relationship with XRCore
 
-- **Escenarios de entrenamiento como datos**:
-  - `XRTrainingScenario`: ScriptableObject que define la secuencia de pasos.
-  - `XRTrainingStep`: título, instrucción, validadores, modo de validación (`Any` / `All`).
+XRCore Training Toolkit is explicitly designed to work together with [XRCore SDK](https://github.com/splibiplay/xrcore-sdk):
 
-- **Sistema de validación modular (`IXRTrainingValidator`)**:
-  - `ObjectFocusValidator`: valida cuando el usuario mira a un objeto objetivo.
-  - `ObjectGrabValidator`: valida cuando el objeto ha sido cogido.
-  - `ObjectPlaceValidator`: valida cuando el objeto se coloca en una zona concreta.
-  - Posibilidad de crear validadores propios (por ejemplo, pulsar un botón, accionar una palanca, completar un procedimiento).
+- XRCore provides:
+  - `XRCoreEventBus` (event bus).
+  - Perception providers (detection, vision, etc.).
+  - Agents (`XRGuideAgent`) and reasoners (rule engine, state machine, LLM…).
+- XRCore Training Toolkit adds:
+  - `XRTrainingScenario` and `XRTrainingStep` to define training flows.
+  - `XRTrainingScenarioRunner` to orchestrate step progression.
+  - `IXRTrainingValidator` and ready-to-use validators (look, grab, place).
+  - A feedback system (instruction UI, progress, step state, audio, highlight).
+  - An industrial-style demo ready to record in seconds.
 
-- **Integración con eventos XRCore (sin acoplamiento duro)**:
-  - Un bridge interno escucha eventos de `XRCoreEventBus` por reflexión cuando XRCore está presente.
-  - Si XRCore no está instalado, el toolkit sigue funcionando para la demo básica y muestra advertencias claras.
-
-- **Capa de feedback para el usuario**:
-  - `XRTrainingInstructionPanel`: muestra título, instrucción y progreso del step.
-  - `XRTrainingProgressUI`: representa el progreso con texto y "dots".
-  - `XRTrainingStepIndicator`: indica estado del paso (INACTIVE / ACTIVE / COMPLETED / ERROR).
-  - `XRTrainingHighlightBehaviour`: resalta el objeto relevante.
-  - `XRTrainingAudioFeedback`: reproduce audio de éxito/error.
-
-- **UI lista para XR**:
-  - Prefabs `XRTrainingUIPanel` y `XRTrainingUIPanel_XRDemo` con canvas en World Space.
-  - `XRTrainingUIFollowCamera` mantiene el panel frente a la cámara XR.
-
-- **Demo industrial lista para grabar**:
-  - Escena de ejemplo donde el usuario: **mira**, **coge** y **coloca** una herramienta.
-  - Bootstrap que monta cámara, entorno, UI y lógica de entrenamiento automáticamente.
+**Requirement:** for the full experience you should also import XRCore into the Unity project. The toolkit can run a limited demo without XRCore, but it is designed as a natural companion to the core framework.
 
 ---
 
-## Requisitos
+## Key Features
 
-- Unity **2022+** o **Unity 6**.
-- Proyecto configurado para XR (OpenXR, XR Interaction Toolkit, etc.).
-- [XRCore SDK](https://github.com/splibiplay/xrcore-sdk) instalado en el proyecto para integración completa.
+- **Training scenarios as data**
+  - `XRTrainingScenario`: ScriptableObject defining the sequence of steps.
+  - `XRTrainingStep`: title, instruction, validators, validation mode (`Any` / `All`).
+
+- **Modular validation system (`IXRTrainingValidator`)**
+  - `ObjectFocusValidator`: succeeds when the user looks at a target object.
+  - `ObjectGrabValidator`: succeeds when the object has been grabbed.
+  - `ObjectPlaceValidator`: succeeds when the object is placed in a target zone.
+  - Easy to extend with custom validators (e.g. press a button, operate a lever, complete a checklist).
+
+- **Integration with XRCore events (no hard coupling)**
+  - An internal bridge listens to `XRCoreEventBus` events via reflection when XRCore is present.
+  - If XRCore is missing, the toolkit still runs the basic demo and logs clear warnings.
+
+- **User feedback layer**
+  - `XRTrainingInstructionPanel`: shows step title, instruction and progress.
+  - `XRTrainingProgressUI`: renders step progress with text and dots.
+  - `XRTrainingStepIndicator`: shows step state (INACTIVE / ACTIVE / COMPLETED / ERROR).
+  - `XRTrainingHighlightBehaviour`: highlights the relevant object.
+  - `XRTrainingAudioFeedback`: plays success / error audio cues.
+
+- **XR-ready UI**
+  - Prefabs `XRTrainingUIPanel` and `XRTrainingUIPanel_XRDemo` using World Space canvases.
+  - `XRTrainingUIFollowCamera` keeps the panel comfortably in front of the XR camera.
+
+- **Industrial demo ready to record**
+  - Example scene where the user **looks at**, **grabs**, and **places** a tool.
+  - Bootstrap logic that assembles camera, environment, UI and training logic automatically.
 
 ---
 
-## Instalación
+## Requirements
 
-1. Instala **XRCore SDK** (desde la Asset Store o desde el repositorio [xrcore-sdk](https://github.com/splibiplay/xrcore-sdk)).
-2. Importa el paquete **XRCore Training Toolkit** en tu proyecto Unity.
-3. Abre la escena de demo:
+- Unity **2022+** or **Unity 6**.
+- Project configured for XR (OpenXR, XR Interaction Toolkit, etc.).
+- [XRCore SDK](https://github.com/splibiplay/xrcore-sdk) installed for full integration.
+
+---
+
+## Installation
+
+1. Install **XRCore SDK** (from the Asset Store or the [xrcore-sdk](https://github.com/splibiplay/xrcore-sdk) repository).
+2. Import the **XRCore Training Toolkit** package into your Unity project.
+3. Open the demo scene:
    - `Assets/XRCoreTrainingToolkit/Samples/IndustrialTrainingDemo/Scene/Demo_Training_Basic.unity`
-4. Pulsa **Play** y sigue las instrucciones en el panel de training.
+4. Press **Play** and follow the on-screen training instructions.
 
 ---
 
-## Flujo de interacción de ejemplo
+## Example Interaction Flow
 
 ```text
-Usuario mira la herramienta
+User looks at the tool
         ↓
-Se genera un evento de percepción / interacción
+A perception / interaction event is generated
         ↓
-XRCoreEventBus (en XRCore) publica el evento
+XRCoreEventBus (in XRCore) publishes the event
         ↓
-XRTrainingScenarioRunner avanza el paso de entrenamiento
+XRTrainingScenarioRunner advances the training step
         ↓
-La capa de feedback actualiza UI / highlight / audio
+The feedback layer updates UI / highlight / audio
 
 ```
 
 ---
 
-## Casos de uso
+## Use Cases
 
-XRCore Training Toolkit está pensado para:
+XRCore Training Toolkit is designed for:
 
-- **Simulaciones de entrenamiento industrial** (procedimientos paso a paso).
-- **Onboarding XR** para nuevos usuarios o empleados.
-- **Guiado de tareas en tiempo real** en entornos industriales o de mantenimiento.
-- **Demos de producto XR** donde quieres mostrar rápidamente un flujo de trabajo.
-- **Prototipos de formación XR** antes de invertir en contenido muy complejo.
+- **Industrial training simulations** (step-by-step procedures).
+- **XR onboarding** for new users or employees.
+- **Real-time task guidance** in industrial or maintenance environments.
+- **XR product demos** where you need to show a workflow quickly.
+- **XR training prototypes** before investing in heavy content production.
 
 ---
 
-## Documentación adicional
+## Additional Documentation
 
-La documentación específica del toolkit (Quick Start, guía de escenarios, validadores, setup de demo, checklist de Asset Store) se encuentra en el paquete Unity en:
+Toolkit-specific documentation (Quick Start, Scenario Guide, Validators Guide, Demo Setup, Asset Store Checklist) ships inside the Unity package at:
 
 ```text
 Assets/XRCoreTrainingToolkit/Documentation/
 
 ```
 
-Para entender la arquitectura base de agentes XR, revisa también la documentación de XRCore en:
+For a deeper understanding of the underlying agent architecture, see the XRCore docs:
 
-- Repositorio: https://github.com/splibiplay/xrcore-sdk
+- Repository: https://github.com/splibiplay/xrcore-sdk
 
 ---
 
-## Licencia
+## License
 
-XRCore Training Toolkit se distribuye bajo licencia **MIT**.
+XRCore Training Toolkit is distributed under the **MIT License**.
 
-Consulta el archivo [LICENSE](LICENSE) para más detalles.
+See the [LICENSE](LICENSE) file for full details.
