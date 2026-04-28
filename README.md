@@ -5,9 +5,9 @@
 [![AI](https://img.shields.io/badge/AI-Assistant%20Flows-purple)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-XRCore Training Toolkit is a guided training layer for Unity XR built on top of [XRCore SDK](https://github.com/splibiplay/xrcore-sdk).
+XRCore Training Toolkit is the official guided training platform for Unity XR built on top of [XRCore SDK](https://github.com/splibiplay/xrcore-sdk).
 
-Where XRCore focuses on agent architecture (`perception -> events -> reasoning -> behaviour`), this toolkit adds structured scenarios, validator-driven progression, and clear user feedback for real-world training workflows.
+Where XRCore provides the intelligent runtime foundation (`perception -> events -> reasoning -> actions`), this toolkit adds industrial-grade scenario orchestration, validator-driven progression, and clear training feedback UX.
 
 ## Demo
 
@@ -21,14 +21,26 @@ guided step-by-step with instructions, highlighting and audio.
 
 ## Why XRCore Training Toolkit
 
-Most XR training prototypes become difficult to scale because training logic is mixed directly into interaction scripts.
+Most XR training prototypes struggle to scale because training logic is mixed directly into interaction scripts.
 
 This toolkit separates responsibilities:
 
 - XRCore handles runtime intelligence and event infrastructure.
 - XR Training Toolkit handles scenarios, progression, validation, and training UX.
 
-This enables reusable training flows by changing scenario data and validators instead of rewriting scene logic.
+This enables reusable, premium training workflows by changing scenario data and validators instead of rewriting scene logic.
+
+## Ecosystem Storytelling
+
+```text
+Start with XRCore SDK
+       ↓
+Add Training Toolkit
+       ↓
+Add Training Assessment
+       ↓
+Scale with Authoring
+```
 
 ## Relationship with XRCore
 
