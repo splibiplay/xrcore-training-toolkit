@@ -56,7 +56,7 @@ If XRCore is missing, setup validation and editor notices clearly report the dep
 
 ## Video Demos
 
-- SDK demo: _coming soon_
+- SDK demo: [XRCore SDK Demo](https://github.com/splibiplay/xrcore-sdk/raw/main/XRCore_Demo.mp4)
 - Toolkit demo: [XR Training Toolkit Demo](https://www.youtube.com/watch?v=NmwTmtryts8&list=PLdX4Fo1P__hpMhe5PJsSRt3a8O02E0dr3&index=2)
 - Assessment demo: [XRCore Training Assessment Demo](https://youtu.be/MpAfoV2tRJY)
 
