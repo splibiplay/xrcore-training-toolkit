@@ -47,6 +47,19 @@ This toolkit depends on XRCore and is intentionally distributed as an extension 
 
 If XRCore is missing, setup validation and editor notices clearly report the dependency.
 
+## XRCore Ecosystem Links
+
+- Built on top of XRCore SDK: [xrcore-sdk](https://github.com/splibiplay/xrcore-sdk)
+- Works with XRCore Training Toolkit: [xrcore-training-toolkit](https://github.com/splibiplay/xrcore-training-toolkit)
+- See XRCore Training Assessment: [xrcore-assessment](https://github.com/splibiplay/xrcore-assessment)
+- Unity Asset Store publisher page: [SPL Publisher](https://assetstore.unity.com/publishers)
+
+## Video Demos
+
+- SDK demo: _coming soon_
+- Toolkit demo: [XR Training Toolkit Demo](https://www.youtube.com/watch?v=NmwTmtryts8&list=PLdX4Fo1P__hpMhe5PJsSRt3a8O02E0dr3&index=2)
+- Assessment demo: _coming soon_
+
 ## Key Features
 
 - **Scenario-driven training as data**
